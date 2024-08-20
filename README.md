@@ -14,8 +14,8 @@ use @Aspect to handle header basic functionality.
 
 ### endpoint design
 #### endpoint of add user
-url: /admin/addUser
-method: POST
+url: /admin/addUser  
+method: POST  
 params:
 ```json
 {
@@ -27,27 +27,10 @@ params:
     ]
 }
 ```
-result:
-```json
-{
-  "status" : 1,
-  "result" : "success",
-  "message": "",
-  "data": null
-}
-```
+result: "OK"  
 
 #### endpoint for users
-url: /user/{resource}
-method: GET
-params: none
-result:
-```json
-{
-  "status" : 1,
-  "result" : "success",
-  "message": "",
-  "data": "String"
-}
-
-```
+url: /user/{resource}  
+method: GET  
+params: none  
+result: "success"  

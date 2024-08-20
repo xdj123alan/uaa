@@ -2,15 +2,14 @@ package com.alan.uaa.dto;
 
 import lombok.Data;
 
-import java.io.Serializable;
-import java.util.List;
-
 @Data
-public class AddUserDTO implements Serializable {
+public class UserRoleDTO {
 
     private static final long serialVersionUID  = 1L;
 
     private Long userId;
 
-    private List<String> endpoint;
+    private String accountName;
+
+    private String role;
 }
