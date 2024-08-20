@@ -14,6 +14,13 @@ use @Aspect to handle header basic functionality.
 
 ### endpoint design
 #### endpoint of add user
+**request Header**
+```json
+{
+  "token": "ewoidXNlcklkIjoxMjM0NTYsCiJhY2NvdW50TmFtZSI6IlhYWFgiLAoicm9sZSI6ImFkbWluIgp9"
+}
+```
+**request body**  
 url: /admin/addUser  
 method: POST  
 params:
@@ -27,10 +34,30 @@ params:
     ]
 }
 ```
-result: "OK"  
+result: 
+```json
+{
+  "status": 200,
+  "result": "",
+  "errorMsg": "",
+}
+```
 
 #### endpoint for users
+**request Header**
+```json
+{
+  "token": "ewoidXNlcklkIjoxMjM0NTYsCiJhY2NvdW50TmFtZSI6IlhYWFgiLAoicm9sZSI6ImFkbWluIgp9"
+}
+```
+**request body**  
 url: /user/{resource}  
 method: GET  
 params: none  
-result: "success"  
+```json
+{
+  "status": 200,
+  "result": "success",
+  "errorMsg": "",
+}
+```
