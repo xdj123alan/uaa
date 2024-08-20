@@ -1,26 +1,25 @@
 package com.alan.uaa.demos.web;
 
 import com.alan.uaa.dto.AddUserDTO;
-import com.alan.uaa.dto.UserRoleThreadLocal;
-import com.alan.uaa.enums.RoleTypeEnum;
+import com.alan.uaa.dto.ResultDTO;
+import com.alan.uaa.service.UserService;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Objects;
+import javax.annotation.Resource;
 
 @RestController
 public class UserController {
 
+    @Resource
+    private UserService userService;
+
     @PostMapping("/admin/addUser")
-    public String adminAddUser(@RequestBody AddUserDTO addUserDTO) throws Exception {
-        if(Objects.isNull(UserRoleThreadLocal.getContextHolder()) ||
-                !RoleTypeEnum.ADMIN.name().equalsIgnoreCase(UserRoleThreadLocal.getContextHolder().getRole())){
-            return "no access";
-        }
-        return "OK";
+    public ResultDTO adminAddUser(@RequestBody AddUserDTO addUserDTO) throws Exception {
+        return userService.adminAddUser(addUserDTO);
     }
 
     @GetMapping("/user/{resource}")
-    public String judgeUserResource() {
-        return "success";
+    public ResultDTO judgeUserResource(@PathVariable("resource") String resource) {
+        return userService.userResource(resource)? ResultDTO.success("success"):ResultDTO.success("failure");
     }
 }
